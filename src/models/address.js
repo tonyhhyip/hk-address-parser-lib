@@ -1,9 +1,6 @@
 import * as turf from "@turf/turf"
 
 export default class Address {
-  constructor() {
-  }
-
   /**
    * Return the detailed components of the parsed address
    * each element should be in form of
