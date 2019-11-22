@@ -12,10 +12,11 @@ const NEAR_THRESHOLD = 0.05; // 50 metre
 /**
  *
  * @param {string} address
+ * @param {object} options
  * @returns Promise<Address[]>
  */
-async function searchAddressWithOGCIO(address) {
-  const ogcioURL = `https://www.als.ogcio.gov.hk/lookup?q=${encodeURIComponent(address)}&n=${OGCIO_RECORD_COUNT}`;
+async function searchAddressWithOGCIO(address, { limit = OGCIO_RECORD_COUNT }) {
+  const ogcioURL = `https://www.als.ogcio.gov.hk/lookup?q=${encodeURIComponent(address)}&n=${limit}`;
   const ogcioRes = await fetch(ogcioURL, {
     method: "GET",
     mode: "cors",
